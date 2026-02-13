@@ -1,134 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Question</title>
+<meta charset="UTF-8">
+<title>Just One Question</title>
 
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
     body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(145deg, #f3efec, #faf7f5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-      overflow: hidden;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1e1e2f, #2b2b40);
+        font-family: 'Inter', sans-serif;
+        color: #f5f5f5;
+        text-align: center;
     }
 
-    .box {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 36px 44px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      position: relative;
-      min-width: 300px;
-      backdrop-filter: blur(6px);
+    .card {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        padding: 40px;
+        border-radius: 18px;
+        width: 320px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     }
 
     h1 {
-      color: #7a1f1f;
-      font-size: 23px;
-      font-weight: 500;
-      margin-bottom: 26px;
-      line-height: 1.4;
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
     }
 
     button {
-      padding: 10px 26px;
-      font-size: 16px;
-      margin: 8px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      font-family: inherit;
+        padding: 12px 24px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
     }
 
-    #yes {
-      background: #7a1f1f;
-      color: white;
-      box-shadow: 0 6px 18px rgba(122, 31, 31, 0.35);
+    #yesBtn {
+        background: #ffffff;
+        color: #1e1e2f;
+        font-weight: 500;
     }
 
-    #yes:hover {
-      box-shadow: 0 10px 25px rgba(122, 31, 31, 0.45);
-    }
-
-    #no {
-      background: #e6e1df;
-      color: #444;
-      position: absolute;
-    }
-
-    #result {
-      display: none;
-      font-size: 18px;
-      margin-top: 18px;
-      color: #7a1f1f;
-      font-weight: 500;
+    #noBtn {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.4);
     }
 
     img {
-      display: none;
-      width: 170px;
-      margin-top: 14px;
-      border-radius: 12px;
+        width: 200px;
+        margin-top: 20px;
+        border-radius: 12px;
     }
-  </style>
+</style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>do you think i am the best girlfriend</h1>
+<div class="card" id="card">
+    <h1>Do you think I am the best girlfriend?</h1>
 
-  <button id="yes">Yes</button>
-  <button id="no">No</button>
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
 
-  <div id="result">yes ofc i am baby</div>
-
-  <!-- Reliable happy dance GIF (Tenor – works on GitHub Pages) -->
-  <img
-    id="yesGif"
-    src="https://media.tenor.com/8l7b3xQJk2UAAAAC/happy-dance.gif"
-    alt="happy dance"
-  >
-
-  <!-- NO hover GIF -->
-  <img
-    id="noGif"
-    src="https://media.tenor.com/6x8Z8y7kZJ0AAAAC/oh-no.gif"
-    alt="nope"
-  >
+    <div id="gifArea"></div>
 </div>
 
 <script>
-  const noBtn = document.getElementById("no");
-  const yesBtn = document.getElementById("yes");
-  const yesGif = document.getElementById("yesGif");
-  const noGif = document.getElementById("noGif");
-  const result = document.getElementById("result");
+let yesScale = 1;
 
-  let scale = 1;
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const gifArea = document.getElementById("gifArea");
+const card = document.getElementById("card");
 
-  noBtn.addEventListener("mouseover", () => {
-    noBtn.style.left = Math.random() * 75 + "vw";
-    noBtn.style.top = Math.random() * 75 + "vh";
+noBtn.addEventListener("mouseover", () => {
+    yesScale += 0.15;
+    yesBtn.style.transform = `scale(${yesScale})`;
 
-    noGif.style.display = "block";
-    yesGif.style.display = "none";
+    gifArea.innerHTML = `
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2s1aXB0OHkzYjZpZWt0N3Z1MHB6eHlxMGhvaXRwa3E1eGR2Z2h2cCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/U4vFzaRxLzlA3g06kY/giphy.gif" alt="crying">
+    `;
+});
 
-    scale += 0.12;
-    yesBtn.style.transform = "scale(" + scale + ")";
-  });
-
-  yesBtn.addEventListener("click", () => {
-    result.style.display = "block";
-    yesGif.style.display = "block";
-    noGif.style.display = "none";
-  });
+yesBtn.addEventListener("click", () => {
+    card.innerHTML = `
+        <h1>Yes of course I am, baby.</h1>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2Z3Y2J4Zm5rd3psbTR0OXl1aGJjZ21rZG9jYm92eHJyN2V5NmM5aCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3ohzdIuqJoo8QdKlnW/giphy.gif" alt="happy dance">
+    `;
+});
 </script>
 
 </body>
