@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Best Friend 😌</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff0f5;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .box {
+      text-align: center;
+    }
+    button {
+      padding: 12px 26px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #yes {
+      background: #ff5c8a;
+      color: white;
+    }
+    #no {
+      background: #ccc;
+      position: absolute;
+    }
+    #result {
+      display: none;
+      font-size: 22px;
+      margin-top: 15px;
+      color: #d6336c;
+    }
+    img {
+      display: none;
+      width: 220px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1>do you think i am the best friend ever 💗</h1>
+  <button id="yes">Yes 😌</button>
+  <button id="no">No</button>
+
+  <div id="result">yeah i knew it 💃✨</div>
+  <img id="gif" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif">
+</div>
+
+<script>
+  const noBtn = document.getElementById("no");
+  const yesBtn = document.getElementById("yes");
+  const gif = document.getElementById("gif");
+  const result = document.getElementById("result");
+
+  noBtn.addEventListener("mouseover", () => {
+    noBtn.style.left = Math.random() * 80 + "vw";
+    noBtn.style.top = Math.random() * 80 + "vh";
+  });
+
+  yesBtn.onclick = () => {
+    result.style.display = "block";
+    gif.style.display = "block";
+  };
+</script>
+
+</body>
+</html>
