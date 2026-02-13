@@ -8,49 +8,56 @@
     body {
       margin: 0;
       height: 100vh;
-      background: #f6f4f3;
+      background: linear-gradient(145deg, #f3efec, #faf7f5);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
       overflow: hidden;
     }
 
     .box {
-      background: #ffffff;
-      padding: 32px 40px;
-      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 36px 44px;
+      border-radius: 18px;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       position: relative;
-      min-width: 280px;
+      min-width: 300px;
+      backdrop-filter: blur(6px);
     }
 
     h1 {
-      color: #8b1e1e;
-      font-size: 22px;
+      color: #7a1f1f;
+      font-size: 23px;
       font-weight: 500;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
+      line-height: 1.4;
     }
 
     button {
-      padding: 10px 22px;
+      padding: 10px 26px;
       font-size: 16px;
       margin: 8px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       font-family: inherit;
     }
 
     #yes {
-      background: #8b1e1e;
-      color: #ffffff;
+      background: #7a1f1f;
+      color: white;
+      box-shadow: 0 6px 18px rgba(122, 31, 31, 0.35);
+    }
+
+    #yes:hover {
+      box-shadow: 0 10px 25px rgba(122, 31, 31, 0.45);
     }
 
     #no {
-      background: #e0dcdc;
+      background: #e6e1df;
       color: #444;
       position: absolute;
     }
@@ -58,16 +65,16 @@
     #result {
       display: none;
       font-size: 18px;
-      margin-top: 16px;
-      color: #8b1e1e;
+      margin-top: 18px;
+      color: #7a1f1f;
       font-weight: 500;
     }
 
     img {
       display: none;
-      width: 180px;
-      margin-top: 12px;
-      border-radius: 10px;
+      width: 170px;
+      margin-top: 14px;
+      border-radius: 12px;
     }
   </style>
 </head>
@@ -82,8 +89,19 @@
 
   <div id="result">yes ofc i am baby</div>
 
-  <img id="yesGif" src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif">
-  <img id="noGif" src="https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif">
+  <!-- Reliable happy dance GIF (Tenor – works on GitHub Pages) -->
+  <img
+    id="yesGif"
+    src="https://media.tenor.com/8l7b3xQJk2UAAAAC/happy-dance.gif"
+    alt="happy dance"
+  >
+
+  <!-- NO hover GIF -->
+  <img
+    id="noGif"
+    src="https://media.tenor.com/6x8Z8y7kZJ0AAAAC/oh-no.gif"
+    alt="nope"
+  >
 </div>
 
 <script>
@@ -96,8 +114,8 @@
   let scale = 1;
 
   noBtn.addEventListener("mouseover", () => {
-    noBtn.style.left = Math.random() * 80 + "vw";
-    noBtn.style.top = Math.random() * 80 + "vh";
+    noBtn.style.left = Math.random() * 75 + "vw";
+    noBtn.style.top = Math.random() * 75 + "vh";
 
     noGif.style.display = "block";
     yesGif.style.display = "none";
@@ -115,6 +133,7 @@
 
 </body>
 </html>
+
 
 
 
