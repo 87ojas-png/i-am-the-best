@@ -1,65 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>The Best Friend 😌</title>
+  <meta charset="UTF-8">
+  <title>💖 Cutest Question Ever 💖</title>
+
+  <!-- Cute Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #fff0f5);
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fff0f5;
-      font-family: Arial, sans-serif;
+      font-family: 'Quicksand', sans-serif;
       overflow: hidden;
     }
+
     .box {
+      background: #ffffffcc;
+      padding: 35px 45px;
+      border-radius: 25px;
       text-align: center;
+      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.25);
+      position: relative;
     }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #ff4d88;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
     button {
-      padding: 12px 26px;
+      padding: 12px 28px;
       font-size: 18px;
-      margin: 10px;
+      margin: 12px;
       border: none;
-      border-radius: 10px;
+      border-radius: 30px;
       cursor: pointer;
       transition: transform 0.2s ease;
+      font-family: 'Quicksand', sans-serif;
     }
+
     #yes {
-      background: #ff5c8a;
+      background: #ff5fa2;
       color: white;
+      box-shadow: 0 6px 15px rgba(255, 95, 162, 0.4);
     }
+
     #no {
-      background: #ccc;
+      background: #ffd1dc;
+      color: #ff4d88;
       position: absolute;
     }
+
     #result {
       display: none;
       font-size: 22px;
+      color: #ff4d88;
       margin-top: 15px;
-      color: #d6336c;
+      font-family: 'Pacifico', cursive;
     }
+
     img {
       display: none;
-      width: 220px;
-      margin-top: 10px;
+      width: 200px;
+      margin-top: 15px;
+      border-radius: 15px;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
 
 <div class="box">
-  <h1>do you think i am the best friend ever 💗</h1>
+  <h1>do you think i am the best girlfriend 💗</h1>
 
-  <button id="yes">Yes 😌</button>
-  <button id="no">No</button>
+  <button id="yes">Yes 🥺💖</button>
+  <button id="no">No 😏</button>
 
-  <div id="result">yeah i knew it 💃✨</div>
+  <div id="result">yes ofc i am baby 💖</div>
 
-  <!-- YES gif -->
-  <img id="yesGif" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif">
+  <!-- YES happy dance GIF -->
+  <img id="yesGif" src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif">
 
-  <!-- NO try gif -->
+  <!-- NO hover GIF -->
   <img id="noGif" src="https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif">
 </div>
 
@@ -73,16 +120,13 @@
   let scale = 1;
 
   noBtn.addEventListener("mouseover", () => {
-    // move NO
     noBtn.style.left = Math.random() * 80 + "vw";
     noBtn.style.top = Math.random() * 80 + "vh";
 
-    // show NO gif
     noGif.style.display = "block";
     yesGif.style.display = "none";
 
-    // make YES bigger
-    scale += 0.15;
+    scale += 0.18;
     yesBtn.style.transform = `scale(${scale})`;
   });
 
@@ -91,10 +135,17 @@
     yesGif.style.display = "block";
     noGif.style.display = "none";
   };
-</script>
 
-</body>
-</html>
+  /* Floating hearts generator */
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0px";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.app
+
 
 
      
