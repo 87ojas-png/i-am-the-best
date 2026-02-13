@@ -23,6 +23,7 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      transition: transform 0.2s ease;
     }
     #yes {
       background: #ff5c8a;
@@ -49,29 +50,51 @@
 
 <div class="box">
   <h1>do you think i am the best friend ever 💗</h1>
+
   <button id="yes">Yes 😌</button>
   <button id="no">No</button>
 
   <div id="result">yeah i knew it 💃✨</div>
-  <img id="gif" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif">
+
+  <!-- YES gif -->
+  <img id="yesGif" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif">
+
+  <!-- NO try gif -->
+  <img id="noGif" src="https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif">
 </div>
 
 <script>
   const noBtn = document.getElementById("no");
   const yesBtn = document.getElementById("yes");
-  const gif = document.getElementById("gif");
+  const yesGif = document.getElementById("yesGif");
+  const noGif = document.getElementById("noGif");
   const result = document.getElementById("result");
 
+  let scale = 1;
+
   noBtn.addEventListener("mouseover", () => {
+    // move NO
     noBtn.style.left = Math.random() * 80 + "vw";
     noBtn.style.top = Math.random() * 80 + "vh";
+
+    // show NO gif
+    noGif.style.display = "block";
+    yesGif.style.display = "none";
+
+    // make YES bigger
+    scale += 0.15;
+    yesBtn.style.transform = `scale(${scale})`;
   });
 
   yesBtn.onclick = () => {
     result.style.display = "block";
-    gif.style.display = "block";
+    yesGif.style.display = "block";
+    noGif.style.display = "none";
   };
 </script>
 
 </body>
 </html>
+
+     
+     
